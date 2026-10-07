@@ -1,0 +1,64 @@
+{
+  "name": "@mockmarlin/saas-kit",
+  "version": "0.1.0",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "description": "Headless React kit for SaaS session, billing, notifications, and network behavior",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./analytics/posthog": {
+      "types": "./dist/adapters/posthog.d.ts",
+      "default": "./dist/adapters/posthog.js"
+    },
+    "./billing/dodo": {
+      "types": "./dist/adapters/dodo.d.ts",
+      "default": "./dist/adapters/dodo.js"
+    },
+    "./billing/stripe": {
+      "types": "./dist/adapters/stripe.d.ts",
+      "default": "./dist/adapters/stripe.js"
+    },
+    "./billing/paddle": {
+      "types": "./dist/adapters/paddle.d.ts",
+      "default": "./dist/adapters/paddle.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "test": "vitest run",
+    "lint": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@mockmarlin/saas-contract": "file:../saas-contract"
+  },
+  "peerDependencies": {
+    "posthog-js": "^1.435.8",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8"
+  },
+  "peerDependenciesMeta": {
+    "posthog-js": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@types/node": "^24.19.1",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.7",
+    "posthog-js": "^1.435.8",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "typescript": "^5.9.2",
+    "vitest": "^5.0.2"
+  }
+}
